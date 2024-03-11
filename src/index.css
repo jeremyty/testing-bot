@@ -1,0 +1,21 @@
+.winner-info {
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 300px; /* Adjust the width as needed */
+    height: 300px; /* Make it a square column */
+    background-color: black; /* Black background */
+    color: white;
+    display: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .winner-container {
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 300px; /* Adjust the width as needed */
+    height: 100px; /* Make it a square column */
+    display: column;
+    justify-content: center;
+    align-items: center;
+  }
