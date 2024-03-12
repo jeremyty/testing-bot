@@ -36,7 +36,9 @@ const LotterySpinner = ({ participants, onFinish, handleLogout }) => {
           <i className="bi bi-door-closed" /> Logout
         </button>
         {winner ? (
-          <div className="winner-info mx-2 mt-3">
+          <div className="winner-info mt-3">
+            <a>Wallet Search: {winner}</a>
+            <br />
             <a>Wallet Search: {winner}</a>
             <br />
             <a>Wallet Search: {winner}</a>

@@ -23,7 +23,7 @@ function CheckIcons() {
             src={bitcoin}
             roundedCircle
             style={{
-              width: 80,
+              width: 70,
               border: "4px solid #F8F9FA",
             }}
           />
@@ -34,7 +34,7 @@ function CheckIcons() {
             src={ethereum}
             roundedCircle
             style={{
-              width: 80,
+              width: 70,
               border: "4px solid #F8F9FA",
             }}
           />
@@ -45,7 +45,7 @@ function CheckIcons() {
             src={litecoin}
             roundedCircle
             style={{
-              width: 80,
+              width: 70,
               border: "4px solid #F8F9FA",
             }}
           />
@@ -58,7 +58,7 @@ function CheckIcons() {
             src={binancecoin}
             roundedCircle
             style={{
-              width: 80,
+              width: 70,
               border: "4px solid #F8F9FA",
             }}
           />
@@ -69,7 +69,7 @@ function CheckIcons() {
             src={solana}
             roundedCircle
             style={{
-              width: 80,
+              width: 70,
               border: "4px solid #F8F9FA",
             }}
           />
@@ -80,7 +80,7 @@ function CheckIcons() {
             src={usdt}
             roundedCircle
             style={{
-              width: 80,
+              width: 70,
               border: "4px solid #F8F9FA",
             }}
           />
