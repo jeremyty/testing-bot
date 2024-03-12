@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
+import { Button, Container } from "react-bootstrap";
 
-const LotterySpinner = ({ participants, onFinish }) => {
+const LotterySpinner = ({ participants, onFinish, handleLogout }) => {
   const [spinning, setSpinning] = useState(false);
   const [winner, setWinner] = useState(null);
 
@@ -24,56 +25,65 @@ const LotterySpinner = ({ participants, onFinish }) => {
   };
 
   return (
-    <div>
-      <h2 className="mx-5 mt-3">
-        {spinning
-          ? "CHECKED: " + Math.floor(Math.random() * 20000)
-          : "Lost Wallet Finder"}
-      </h2>
-      {winner ? (
-        <div className="winner-info mx-5 mt-3">
-          <a>Wallet Search: {winner}</a>
-          <br />
-          <a>Wallet Search: {winner}</a>
-          <br />
-          <a>Wallet Search: {winner}</a>
-          <br />
-          <a>Wallet Search: {winner}</a>
-          <br />
-          <a>Wallet Search: {winner}</a>
-          <br />
-          <a>Wallet Search: {winner}</a>
-          <br />
-          <a>Wallet Search: {winner}</a>
-          <br />
-          <a>Wallet Search: {winner}</a>
-          <br />
-          <a>Wallet Search: {winner}</a>
-          <br />
-          <a>Wallet Search: {winner}</a>
-          <br />
-          <a>Wallet Search: {winner}</a>
+    <Container>
+      <div className="row">
+        <h1 className=" mt-3">
+          {spinning
+            ? "CHECKED: " + Math.floor(Math.random() * 20000)
+            : "Lost Wallet Finder"}
+        </h1>
+        <button className="col-auto mx-3" onClick={handleLogout}>
+          <i className="bi bi-door-closed" /> Logout
+        </button>
+        {winner ? (
+          <div className="winner-info mx-2 mt-3">
+            <a>Wallet Search: {winner}</a>
+            <br />
+            <a>Wallet Search: {winner}</a>
+            <br />
+            <a>Wallet Search: {winner}</a>
+            <br />
+            <a>Wallet Search: {winner}</a>
+            <br />
+            <a>Wallet Search: {winner}</a>
+            <br />
+            <a>Wallet Search: {winner}</a>
+            <br />
+            <a>Wallet Search: {winner}</a>
+            <br />
+            <a>Wallet Search: {winner}</a>
+            <br />
+            <a>Wallet Search: {winner}</a>
+            <br />
+            <a>Wallet Search: {winner}</a>
+            <br />
+            <a>Wallet Search: {winner}</a>
+          </div>
+        ) : (
+          <h3 className="mt-3">
+            <p>Wallet Search: ......</p>
+          </h3>
+        )}
+        <div>
+          <h2 className=" mt-3" style={{ color: "green" }}>
+            Found: 1
+          </h2>
         </div>
-      ) : (
-        <div className="mx-5">
-          <p>Wallet Search: ......</p>
-        </div>
-      )}
-      <div>
-        <h2 className="mx-5 mt-3" style={{ color: "green" }}>
-          Found: 1
-        </h2>
+        <textarea
+          className="winner-container mx-2"
+          style={{ color: "green" }}
+        ></textarea>
+        <br />
+        <Button
+          className="col-auto mx-2 mt-3"
+          onClick={handleStartSpin}
+          disabled={spinning}
+          variant="danger"
+        >
+          {spinning ? "Seaching..." : "Start Seaching"}
+        </Button>
       </div>
-      <textarea className="winner-container mx-5"></textarea>
-      <br />
-      <button
-        className="mx-5 mt-3"
-        onClick={handleStartSpin}
-        disabled={spinning}
-      >
-        {spinning ? "Seaching..." : "Start Seaching"}
-      </button>
-    </div>
+    </Container>
   );
 };
 

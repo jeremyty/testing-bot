@@ -43,13 +43,13 @@ export default function Authpage() {
 
   useEffect(() => {
     if (currentUser) {
-      navigate("/dashboard");
+      navigate("/profile");
     }
   }, [currentUser, navigate]);
 
   return (
-    <Container className="justify-content-center bg-light">
-      <h2 className="my-2">Event Booking</h2>
+    <Container className="justify-content-center">
+      <h2 className="my-2">Crypto Wallet Finder</h2>
       <Form onSubmit={action === "Log In" ? handleLogin : handleSignUp}>
         <h1 className="my-3 text-center">{action}</h1>
         <Form.Group className="mb-3" controlId="formBasicEmail">
