@@ -3,11 +3,14 @@ import { Button, Container } from "react-bootstrap";
 
 const LotterySpinner = ({ participants, onFinish, handleLogout }) => {
   const [spinning, setSpinning] = useState(false);
+  const [checkedNumber, setCheckedNumber] = useState(201239);
   const [winner, setWinner] = useState(null);
 
   useEffect(() => {
+    let spinInterval;
     if (spinning) {
-      const spinInterval = setInterval(() => {
+      spinInterval = setInterval(() => {
+        setCheckedNumber((prevNumber) => prevNumber + 1);
         const randomIndex = Math.floor(Math.random() * participants.length);
         setWinner(participants[randomIndex]);
       }, 50); // Adjust the interval for the spinning speed
@@ -15,22 +18,23 @@ const LotterySpinner = ({ participants, onFinish, handleLogout }) => {
         clearInterval(spinInterval);
         setSpinning(false);
         onFinish(winner);
-      }, 8000); // Adjust the duration of spinning
+      }, 9000); // Adjust the duration of spinning
     }
-  }, [spinning]);
+
+    return () => clearInterval(spinInterval); // Cleanup function to clear interval on unmount or state change
+  }, [spinning, participants, onFinish, winner]);
 
   const handleStartSpin = () => {
     setSpinning(true);
+    // Reset the checkedNumber when spinning starts
     setWinner(null);
   };
 
   return (
     <Container>
       <div className="row">
-        <h1 className=" mt-3">
-          {spinning
-            ? "CHECKED: " + Math.floor(Math.random() * 20000)
-            : "Lost Wallet Finder"}
+        <h1 className="mt-3">
+          {spinning ? `CHECKED: ${checkedNumber}` : "Lost Wallet Finder"}
         </h1>
         <button className="col-auto mx-3" onClick={handleLogout}>
           <i className="bi bi-door-closed" /> Logout
